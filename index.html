@@ -25,7 +25,7 @@
       --radius: 14px;
 
       --max: 1080px;
-      --pad: 20px;
+      --pad: 28px;
       --gap: 14px;
     }
 
@@ -51,6 +51,7 @@
       color:var(--text);
       background: var(--bg);
       line-height:1.55;
+      font-size: 17px;
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -71,7 +72,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 12px 0;
+      padding: 22px 0;
       gap: var(--gap);
     }
 
@@ -80,22 +81,23 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background:
-        linear-gradient(135deg, var(--accent), var(--accent2));
+      background: transparent;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
+      object-fit: contain;
+      display:block;
     }
     .brand-title{ display:flex; flex-direction:column; }
-    .brand-title strong{ font-size: 14px; letter-spacing:.2px; }
-    .brand-title span{ font-size: 12px; color: var(--muted); }
+    .brand-title strong{ font-size: 16px; letter-spacing:.2px; }
+    .brand-title span{ font-size: 13px; color: var(--muted); }
 
-    nav{ display:flex; align-items:center; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
+    nav{ display:flex; align-items:center; gap: 16px; flex-wrap:wrap; justify-content:flex-end; }
     .navlink{
       padding: 8px 10px;
       border-radius: 10px;
       border: 1px solid transparent;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
     }
     .navlink:hover{ border-color: var(--border); color: var(--text); text-decoration:none; }
 
@@ -108,7 +110,7 @@
       border: 1px solid var(--border);
       background: color-mix(in srgb, var(--panel) 86%, transparent);
       color: var(--text);
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
       user-select:none;
     }
@@ -117,13 +119,14 @@
       outline-offset: 2px;
     }
 
-    main{ padding: 26px 0 42px; }
+    main{ padding: 52px 0 72px; }
 
     .hero{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 18px;
       align-items:stretch;
+      margin-top: 10px;
     }
 
     @media (max-width: 900px){
@@ -145,7 +148,7 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
       border: 1px solid var(--border);
       padding: 6px 10px;
@@ -153,12 +156,12 @@
       background: color-mix(in srgb, var(--panel) 80%, transparent);
     }
 
-    h1{ margin: 12px 0 10px; font-size: clamp(28px, 4vw, 44px); line-height:1.12; }
+    h1{ margin: 12px 0 10px; font-size: clamp(32px, 4.4vw, 52px); line-height:1.12; }
     .lead{ margin: 0; color: var(--muted); font-size: 15px; }
 
     .tags{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 14px; }
     .tag{
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
       border: 1px solid var(--border);
       padding: 6px 10px;
@@ -178,8 +181,8 @@
 
     section{ margin-top: 18px; }
     .section-title{ padding: 16px 18px; border-bottom: 1px solid var(--border); }
-    .section-title h2{ margin: 0; font-size: 16px; }
-    .section-title p{ margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+    .section-title h2{ margin: 0; font-size: 18px; }
+    .section-title p{ margin: 6px 0 0; color: var(--muted); font-size: 14px; }
 
     .grid{
       display:grid;
@@ -198,24 +201,25 @@
       padding: 14px;
       min-height: 120px;
     }
-    .card h3{ margin: 0 0 6px; font-size: 14px; }
-    .card p{ margin: 0; color: var(--muted); font-size: 13px; }
+    .card h3{ margin: 0 0 6px; font-size: 16px; }
+    .card p{ margin: 0; color: var(--muted); font-size: 14px; }
 
-    .list{ padding: 16px; display:grid; grid-template-columns: 1fr; gap: 10px; }
+    .list{ padding: 22px 16px; display:grid; grid-template-columns: 1fr; gap: 10px; }
     .item{
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 12px 14px;
       background: color-mix(in srgb, var(--panel) 86%, transparent);
     }
-    .item strong{ display:block; font-size: 13px; }
-    .item span{ display:block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .item strong{ display:block; font-size: 14px; }
+    .item span{ display:block; margin-top: 4px; color: var(--muted); font-size: 14px; }
 
     footer{
       border-top: 1px solid var(--border);
-      padding: 18px 0 30px;
+      margin-top: 56px;
+      padding: 24px 0 96px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .footer-row{ display:flex; align-items:flex-start; justify-content:space-between; gap: 12px; flex-wrap:wrap; }
@@ -243,11 +247,10 @@
   <header>
     <div class="container">
       <div class="topbar">
-        <a class="brand" href="#top" aria-label="MatrixEcho Minechat">
-          <div class="brand-mark" aria-hidden="true"></div>
+        <a class="brand" href="#top" aria-label="Minechat">
+          <img class="brand-mark" src="logo.png" alt="" aria-hidden="true" />
           <div class="brand-title">
-            <strong>MatrixEcho</strong>
-            <span data-i18n="brandSub">Minechat 协作软件</span>
+            <strong>Minechat</strong>
           </div>
         </a>
 
@@ -269,7 +272,6 @@
   <main id="top" class="container">
     <div class="hero">
       <div class="panel hero-left" id="product">
-        <div class="eyebrow" data-i18n="eyebrow">官方网站 · 产品展示</div>
         <h1 data-i18n="heroTitle">Minechat：面向 Minecraft 内容创作者的协作工具</h1>
         <p class="lead" data-i18n="heroLead">
           文件共享、信息查询、信息更新、聊天交互——把创作与运营日常集中在一个更顺手的协作入口。
@@ -279,9 +281,6 @@
           <span class="tag" data-i18n="tag2">信息查询</span>
           <span class="tag" data-i18n="tag3">信息更新</span>
           <span class="tag" data-i18n="tag4">聊天交互</span>
-        </div>
-        <div class="note" data-i18n="displayOnly">
-          说明：本网站仅用于产品展示，并非产品本体；实际功能以已部署的 Minechat 客户端/服务为准。
         </div>
       </div>
 
@@ -333,10 +332,6 @@
           <h3 data-i18n="f5Title">面向创作者</h3>
           <p data-i18n="f5Desc">聚焦 Minecraft 内容创作团队的日常协作节奏与沟通习惯。</p>
         </div>
-        <div class="card">
-          <h3 data-i18n="f6Title">产品展示站</h3>
-          <p data-i18n="f6Desc">本页面用于介绍产品定位与能力，不提供在线登录或操作入口。</p>
-        </div>
       </div>
     </section>
 
@@ -375,7 +370,6 @@
         </div>
 
         <div class="icp" aria-label="ICP">
-          <div data-i18n="icpLabel">备案号预留</div>
           <div style="margin-top:4px" id="icpPlaceholder">
             <span data-i18n="icpPrefix">ICP 备案号：</span>
             <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2026018443号-2</a>
@@ -389,20 +383,17 @@
     (function(){
       const I18N = {
         zh: {
-          brandSub: "Minechat 协作软件",
           navProduct: "产品",
           navFeatures: "功能",
           navScenes: "场景",
           langToggle: "切换语言",
 
-          eyebrow: "官方网站 · 产品展示",
           heroTitle: "Minechat：面向 Minecraft 内容创作者的协作工具",
           heroLead: "文件共享、信息查询、信息更新、聊天交互——把创作与运营日常集中在一个更顺手的协作入口。",
           tag1: "文件共享",
           tag2: "信息查询",
           tag3: "信息更新",
           tag4: "聊天交互",
-          displayOnly: "说明：本网站仅用于产品展示，并非产品本体；实际功能以已部署的 Minechat 客户端/服务为准。",
 
           snapshotTitle: "产品概览",
           snapshotLead: "为 Minecraft 创作者团队与协作伙伴提供更清晰的“素材—信息—沟通”工作流。",
@@ -425,42 +416,35 @@
           f4Desc: "在协作过程中进行即时沟通，把讨论贴近任务与内容。",
           f5Title: "面向创作者",
           f5Desc: "聚焦 Minecraft 内容创作团队的日常协作节奏与沟通习惯。",
-          f6Title: "产品展示站",
-          f6Desc: "本页面用于介绍产品定位与能力，不提供在线登录或操作入口。",
 
           scenesTitle: "适用场景",
-          scenesLead: "覆盖创作从素材到发布的常见协作环节。",
-          s1Title: "多人创作与素材流转",
-          s1Desc: "在多个角色之间更高效地共享与同步工程/素材文件。",
-          s2Title: "信息集中查询与核对",
-          s2Desc: "减少“到处问、到处找”，把常用信息沉淀为可检索入口。",
-          s3Title: "变更通知与协作更新",
-          s3Desc: "当内容与资料更新时，让相关协作者能及时获取一致信息。",
-          s4Title: "创作沟通与问题闭环",
-          s4Desc: "讨论更贴近内容与任务，减少跨平台跳转与遗漏。",
+          scenesLead: "面向 Minecraft 服务器与创作协作的高频操作。",
+          s1Title: "与服务器内同步聊天",
+          s1Desc: "与服务器内聊天联动，让沟通与游戏内信息保持同步。",
+          s2Title: "发送特色文件格式",
+          s2Desc: "支持发送原理图、结构文件、资源包等常用创作文件，便于协作交付与流转。",
+          s3Title: "查看服务器大地图",
+          s3Desc: "支持查看服务器大地图，快速定位与浏览关键区域。",
+          s4Title: "查询与编辑 Minecraft 信息",
+          s4Desc: "支持查询与编辑 Minecraft 相关信息，便于维护与更新。",
 
           footerBrand: "MatrixEcho",
           footerProduct: "Minechat 协作软件",
           footerLegal: "MatrixEcho（深圳回响矩阵人工智能有限公司）",
-          icpLabel: "备案号预留",
           icpPrefix: "ICP 备案号：",
-          icpTodo: "（待填写）",
         },
         en: {
-          brandSub: "Minechat Collaboration",
           navProduct: "Product",
           navFeatures: "Features",
           navScenes: "Use cases",
           langToggle: "Toggle language",
 
-          eyebrow: "Official website · Product showcase",
           heroTitle: "Minechat: Collaboration for Minecraft creators",
           heroLead: "File sharing, information lookup, updates, and chat—one smoother entry point for everyday creation and operations.",
           tag1: "File sharing",
           tag2: "Lookup",
           tag3: "Updates",
           tag4: "Chat",
-          displayOnly: "Note: This site is for product presentation only and is not the product itself. Actual capabilities depend on deployed Minechat clients/services.",
 
           snapshotTitle: "Snapshot",
           snapshotLead: "A clearer workflow across assets, information, and communication for Minecraft creator teams and partners.",
@@ -483,26 +467,22 @@
           f4Desc: "Keep conversations close to the work—less context switching, fewer misses.",
           f5Title: "Built for creators",
           f5Desc: "Focused on the rhythm and habits of Minecraft content teams.",
-          f6Title: "Showcase only",
-          f6Desc: "This page introduces the product and does not provide login or in-browser operations.",
 
           scenesTitle: "Use cases",
-          scenesLead: "Common collaboration moments from assets to publishing.",
-          s1Title: "Multi-role creation & asset flow",
-          s1Desc: "Share and sync project/assets more efficiently across roles.",
-          s2Title: "Centralized lookup & verification",
-          s2Desc: "Less asking around—turn frequent info into a searchable entry.",
-          s3Title: "Change notifications & updates",
-          s3Desc: "When things change, collaborators get aligned information in time.",
-          s4Title: "Communication & closure",
-          s4Desc: "Discuss closer to tasks and content—reduce platform hopping and misses.",
+          scenesLead: "High-frequency actions for Minecraft servers and creator collaboration.",
+          s1Title: "Chat sync with the server",
+          s1Desc: "Link with in-server chat so conversations stay aligned with in-game context.",
+          s2Title: "Send creator-specific file formats",
+          s2Desc: "Send schematics, structure files, resource packs, and other common creator formats for smoother handoff.",
+          s3Title: "View the server world map",
+          s3Desc: "Open the server map to quickly browse and locate key areas.",
+          s4Title: "Query & edit Minecraft information",
+          s4Desc: "Query and edit Minecraft-related information for easier maintenance and updates.",
 
           footerBrand: "MatrixEcho",
           footerProduct: "Minechat",
           footerLegal: "MatrixEcho (Shenzhen MatrixEcho AI Co., Ltd.)",
-          icpLabel: "ICP placeholder",
           icpPrefix: "ICP Filing No.: ",
-          icpTodo: "(to be filled)",
         }
       };
 
