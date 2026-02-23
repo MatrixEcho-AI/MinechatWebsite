@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+
+  <title>Minechat | MatrixEcho</title>
+  <meta name="description" content="Minechat 协作软件官方网站（产品展示站）：面向 Minecraft 内容创作者的文件共享、信息查询、信息更新与聊天交互。" />
+
+  <!-- Pretend favicon.ico exists; you will replace it later. -->
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #11131a;
+      --text: #e8eaf0;
+      --muted: #a9afc3;
+      --border: rgba(255,255,255,.10);
+      --focus: rgba(130,170,255,.55);
+      --accent: #82aaff;
+      --accent2: #8affc1;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+
+      --max: 1080px;
+      --pad: 20px;
+      --gap: 14px;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #ffffff;
+        --panel: #f6f7fb;
+        --text: #0f1222;
+        --muted: #4b536f;
+        --border: rgba(15,18,34,.12);
+        --focus: rgba(50,100,255,.35);
+        --accent: #2f62ff;
+        --accent2: #00a56a;
+        --shadow: 0 10px 30px rgba(15,18,34,.12);
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color:var(--text);
+      background: var(--bg);
+      line-height:1.55;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .container{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 0;
+      gap: var(--gap);
+    }
+
+    .brand{ display:flex; align-items:center; gap:10px; min-width: 220px; }
+    .brand-mark{
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .brand-title{ display:flex; flex-direction:column; }
+    .brand-title strong{ font-size: 14px; letter-spacing:.2px; }
+    .brand-title span{ font-size: 12px; color: var(--muted); }
+
+    nav{ display:flex; align-items:center; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
+    .navlink{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .navlink:hover{ border-color: var(--border); color: var(--text); text-decoration:none; }
+
+    .langbtn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+      color: var(--text);
+      font-size: 13px;
+      cursor: pointer;
+      user-select:none;
+    }
+    .langbtn:focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    main{ padding: 26px 0 42px; }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+    }
+
+    .panel{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--panel) 88%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-left{ padding: 22px; }
+    .hero-right{ padding: 22px; }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+    }
+
+    h1{ margin: 12px 0 10px; font-size: clamp(28px, 4vw, 44px); line-height:1.12; }
+    .lead{ margin: 0; color: var(--muted); font-size: 15px; }
+
+    .tags{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 14px; }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .note{
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      border-left: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+      padding: 8px 10px;
+      background: color-mix(in srgb, var(--panel) 76%, transparent);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    section{ margin-top: 18px; }
+    .section-title{ padding: 16px 18px; border-bottom: 1px solid var(--border); }
+    .section-title h2{ margin: 0; font-size: 16px; }
+    .section-title p{ margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 16px;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+      padding: 14px;
+      min-height: 120px;
+    }
+    .card h3{ margin: 0 0 6px; font-size: 14px; }
+    .card p{ margin: 0; color: var(--muted); font-size: 13px; }
+
+    .list{ padding: 16px; display:grid; grid-template-columns: 1fr; gap: 10px; }
+    .item{
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+    }
+    .item strong{ display:block; font-size: 13px; }
+    .item span{ display:block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 18px 0 30px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-row{ display:flex; align-items:flex-start; justify-content:space-between; gap: 12px; flex-wrap:wrap; }
+    .icp{
+      border: 1px dashed var(--border);
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="MatrixEcho Minechat">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-title">
+            <strong>MatrixEcho</strong>
+            <span data-i18n="brandSub">Minechat 协作软件</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <a class="navlink" href="#product" data-i18n="navProduct">产品</a>
+          <a class="navlink" href="#features" data-i18n="navFeatures">功能</a>
+          <a class="navlink" href="#scenes" data-i18n="navScenes">场景</a>
+
+          <button id="langBtn" class="langbtn" type="button">
+            <span aria-hidden="true">🌐</span>
+            <span id="langBtnText">中文 / EN</span>
+            <span class="sr-only" data-i18n="langToggle">切换语言</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <div class="hero">
+      <div class="panel hero-left" id="product">
+        <div class="eyebrow" data-i18n="eyebrow">官方网站 · 产品展示</div>
+        <h1 data-i18n="heroTitle">Minechat：面向 Minecraft 内容创作者的协作工具</h1>
+        <p class="lead" data-i18n="heroLead">
+          文件共享、信息查询、信息更新、聊天交互——把创作与运营日常集中在一个更顺手的协作入口。
+        </p>
+        <div class="tags" aria-label="Key points">
+          <span class="tag" data-i18n="tag1">文件共享</span>
+          <span class="tag" data-i18n="tag2">信息查询</span>
+          <span class="tag" data-i18n="tag3">信息更新</span>
+          <span class="tag" data-i18n="tag4">聊天交互</span>
+        </div>
+        <div class="note" data-i18n="displayOnly">
+          说明：本网站仅用于产品展示，并非产品本体；实际功能以已部署的 Minechat 客户端/服务为准。
+        </div>
+      </div>
+
+      <div class="panel hero-right">
+        <div class="section-title">
+          <h2 data-i18n="snapshotTitle">产品概览</h2>
+          <p data-i18n="snapshotLead">为 Minecraft 创作者团队与协作伙伴提供更清晰的“素材—信息—沟通”工作流。</p>
+        </div>
+        <div class="list">
+          <div class="item">
+            <strong data-i18n="snap1Title">更快共享素材与文件</strong>
+            <span data-i18n="snap1Desc">在协作链路中减少反复传输与散落，提升交付效率。</span>
+          </div>
+          <div class="item">
+            <strong data-i18n="snap2Title">更统一的信息查询入口</strong>
+            <span data-i18n="snap2Desc">把常用信息集中可查，降低沟通成本。</span>
+          </div>
+          <div class="item">
+            <strong data-i18n="snap3Title">更顺畅的信息更新与同步</strong>
+            <span data-i18n="snap3Desc">让更新可追踪、可同步，减少遗漏与误差。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="panel" id="features">
+      <div class="section-title">
+        <h2 data-i18n="featuresTitle">核心功能</h2>
+        <p data-i18n="featuresLead">围绕内容创作协作的四类高频需求。</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3 data-i18n="f1Title">文件共享</h3>
+          <p data-i18n="f1Desc">用于创作素材、工程文件与资源包的协作分发与管理。</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="f2Title">信息查询</h3>
+          <p data-i18n="f2Desc">快速查找协作所需的常用信息与关键数据。</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="f3Title">信息更新</h3>
+          <p data-i18n="f3Desc">对素材、进度、说明等信息进行更新与同步，保持一致性。</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="f4Title">聊天交互</h3>
+          <p data-i18n="f4Desc">在协作过程中进行即时沟通，把讨论贴近任务与内容。</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="f5Title">面向创作者</h3>
+          <p data-i18n="f5Desc">聚焦 Minecraft 内容创作团队的日常协作节奏与沟通习惯。</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="f6Title">产品展示站</h3>
+          <p data-i18n="f6Desc">本页面用于介绍产品定位与能力，不提供在线登录或操作入口。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="scenes">
+      <div class="section-title">
+        <h2 data-i18n="scenesTitle">适用场景</h2>
+        <p data-i18n="scenesLead">覆盖创作从素材到发布的常见协作环节。</p>
+      </div>
+      <div class="list">
+        <div class="item">
+          <strong data-i18n="s1Title">多人创作与素材流转</strong>
+          <span data-i18n="s1Desc">在多个角色之间更高效地共享与同步工程/素材文件。</span>
+        </div>
+        <div class="item">
+          <strong data-i18n="s2Title">信息集中查询与核对</strong>
+          <span data-i18n="s2Desc">减少“到处问、到处找”，把常用信息沉淀为可检索入口。</span>
+        </div>
+        <div class="item">
+          <strong data-i18n="s3Title">变更通知与协作更新</strong>
+          <span data-i18n="s3Desc">当内容与资料更新时，让相关协作者能及时获取一致信息。</span>
+        </div>
+        <div class="item">
+          <strong data-i18n="s4Title">创作沟通与问题闭环</strong>
+          <span data-i18n="s4Desc">讨论更贴近内容与任务，减少跨平台跳转与遗漏。</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <div><span data-i18n="footerBrand">MatrixEcho</span> · <span data-i18n="footerProduct">Minechat 协作软件</span></div>
+          <div style="margin-top:6px" data-i18n="footerLegal">MatrixEcho（深圳回响矩阵人工智能有限公司）</div>
+        </div>
+
+        <div class="icp" aria-label="ICP">
+          <div data-i18n="icpLabel">备案号预留</div>
+          <div style="margin-top:4px" id="icpPlaceholder">
+            <span data-i18n="icpPrefix">ICP 备案号：</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2026018443号-2</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const I18N = {
+        zh: {
+          brandSub: "Minechat 协作软件",
+          navProduct: "产品",
+          navFeatures: "功能",
+          navScenes: "场景",
+          langToggle: "切换语言",
+
+          eyebrow: "官方网站 · 产品展示",
+          heroTitle: "Minechat：面向 Minecraft 内容创作者的协作工具",
+          heroLead: "文件共享、信息查询、信息更新、聊天交互——把创作与运营日常集中在一个更顺手的协作入口。",
+          tag1: "文件共享",
+          tag2: "信息查询",
+          tag3: "信息更新",
+          tag4: "聊天交互",
+          displayOnly: "说明：本网站仅用于产品展示，并非产品本体；实际功能以已部署的 Minechat 客户端/服务为准。",
+
+          snapshotTitle: "产品概览",
+          snapshotLead: "为 Minecraft 创作者团队与协作伙伴提供更清晰的“素材—信息—沟通”工作流。",
+          snap1Title: "更快共享素材与文件",
+          snap1Desc: "在协作链路中减少反复传输与散落，提升交付效率。",
+          snap2Title: "更统一的信息查询入口",
+          snap2Desc: "把常用信息集中可查，降低沟通成本。",
+          snap3Title: "更顺畅的信息更新与同步",
+          snap3Desc: "让更新可追踪、可同步，减少遗漏与误差。",
+
+          featuresTitle: "核心功能",
+          featuresLead: "围绕内容创作协作的四类高频需求。",
+          f1Title: "文件共享",
+          f1Desc: "用于创作素材、工程文件与资源包的协作分发与管理。",
+          f2Title: "信息查询",
+          f2Desc: "快速查找协作所需的常用信息与关键数据。",
+          f3Title: "信息更新",
+          f3Desc: "对素材、进度、说明等信息进行更新与同步，保持一致性。",
+          f4Title: "聊天交互",
+          f4Desc: "在协作过程中进行即时沟通，把讨论贴近任务与内容。",
+          f5Title: "面向创作者",
+          f5Desc: "聚焦 Minecraft 内容创作团队的日常协作节奏与沟通习惯。",
+          f6Title: "产品展示站",
+          f6Desc: "本页面用于介绍产品定位与能力，不提供在线登录或操作入口。",
+
+          scenesTitle: "适用场景",
+          scenesLead: "覆盖创作从素材到发布的常见协作环节。",
+          s1Title: "多人创作与素材流转",
+          s1Desc: "在多个角色之间更高效地共享与同步工程/素材文件。",
+          s2Title: "信息集中查询与核对",
+          s2Desc: "减少“到处问、到处找”，把常用信息沉淀为可检索入口。",
+          s3Title: "变更通知与协作更新",
+          s3Desc: "当内容与资料更新时，让相关协作者能及时获取一致信息。",
+          s4Title: "创作沟通与问题闭环",
+          s4Desc: "讨论更贴近内容与任务，减少跨平台跳转与遗漏。",
+
+          footerBrand: "MatrixEcho",
+          footerProduct: "Minechat 协作软件",
+          footerLegal: "MatrixEcho（深圳回响矩阵人工智能有限公司）",
+          icpLabel: "备案号预留",
+          icpPrefix: "ICP 备案号：",
+          icpTodo: "（待填写）",
+        },
+        en: {
+          brandSub: "Minechat Collaboration",
+          navProduct: "Product",
+          navFeatures: "Features",
+          navScenes: "Use cases",
+          langToggle: "Toggle language",
+
+          eyebrow: "Official website · Product showcase",
+          heroTitle: "Minechat: Collaboration for Minecraft creators",
+          heroLead: "File sharing, information lookup, updates, and chat—one smoother entry point for everyday creation and operations.",
+          tag1: "File sharing",
+          tag2: "Lookup",
+          tag3: "Updates",
+          tag4: "Chat",
+          displayOnly: "Note: This site is for product presentation only and is not the product itself. Actual capabilities depend on deployed Minechat clients/services.",
+
+          snapshotTitle: "Snapshot",
+          snapshotLead: "A clearer workflow across assets, information, and communication for Minecraft creator teams and partners.",
+          snap1Title: "Share assets faster",
+          snap1Desc: "Reduce scattered transfers and keep delivery efficient.",
+          snap2Title: "One place to look things up",
+          snap2Desc: "Centralize frequently-used information and lower coordination cost.",
+          snap3Title: "Track and sync updates",
+          snap3Desc: "Keep changes visible and aligned to reduce misses and inconsistencies.",
+
+          featuresTitle: "Core features",
+          featuresLead: "Four high-frequency needs in creator collaboration.",
+          f1Title: "File sharing",
+          f1Desc: "Collaborative distribution and management for assets, project files, and resource packs.",
+          f2Title: "Information lookup",
+          f2Desc: "Quick access to commonly needed information and key data.",
+          f3Title: "Information updates",
+          f3Desc: "Update and sync assets, progress notes, and documentation to stay consistent.",
+          f4Title: "Chat interactions",
+          f4Desc: "Keep conversations close to the work—less context switching, fewer misses.",
+          f5Title: "Built for creators",
+          f5Desc: "Focused on the rhythm and habits of Minecraft content teams.",
+          f6Title: "Showcase only",
+          f6Desc: "This page introduces the product and does not provide login or in-browser operations.",
+
+          scenesTitle: "Use cases",
+          scenesLead: "Common collaboration moments from assets to publishing.",
+          s1Title: "Multi-role creation & asset flow",
+          s1Desc: "Share and sync project/assets more efficiently across roles.",
+          s2Title: "Centralized lookup & verification",
+          s2Desc: "Less asking around—turn frequent info into a searchable entry.",
+          s3Title: "Change notifications & updates",
+          s3Desc: "When things change, collaborators get aligned information in time.",
+          s4Title: "Communication & closure",
+          s4Desc: "Discuss closer to tasks and content—reduce platform hopping and misses.",
+
+          footerBrand: "MatrixEcho",
+          footerProduct: "Minechat",
+          footerLegal: "MatrixEcho (Shenzhen MatrixEcho AI Co., Ltd.)",
+          icpLabel: "ICP placeholder",
+          icpPrefix: "ICP Filing No.: ",
+          icpTodo: "(to be filled)",
+        }
+      };
+
+      const LANG_KEY = "minechat_website_lang";
+
+      function detectDefaultLang(){
+        const saved = (localStorage.getItem(LANG_KEY) || "").toLowerCase();
+        if (saved === "zh" || saved === "en") return saved;
+
+        const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(x => String(x).toLowerCase());
+        const isZh = langs.some(l => l.startsWith("zh"));
+        return isZh ? "zh" : "en";
+      }
+
+      function applyLang(lang){
+        const dict = I18N[lang] || I18N.zh;
+
+        document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (!key) return;
+          if (Object.prototype.hasOwnProperty.call(dict, key)) {
+            el.textContent = dict[key];
+          }
+        });
+
+        // Button label: show current + available
+        const btnText = document.getElementById("langBtnText");
+        if (btnText) btnText.textContent = lang === "zh" ? "中文 / EN" : "EN / 中文";
+
+        try{ localStorage.setItem(LANG_KEY, lang); }catch(_e){}
+      }
+
+      const langBtn = document.getElementById("langBtn");
+      let current = detectDefaultLang();
+      applyLang(current);
+
+      if (langBtn){
+        langBtn.addEventListener("click", () => {
+          current = current === "zh" ? "en" : "zh";
+          applyLang(current);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
