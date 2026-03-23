@@ -1,0 +1,20 @@
+{
+  "platform": "ios",
+  "label": "iOS",
+  "supported": false,
+  "latestVersion": "",
+  "updatedAt": "2026-03-23",
+  "description": "Minechat iOS 版本下载信息。",
+  "unsupportedMessage": "iOS 版本暂未开放下载。",
+  "versions": [
+    {
+      "version": "即将上线",
+      "releaseDate": "2026-03-23",
+      "supported": false,
+      "notes": [
+        "iOS 版本正在准备中。"
+      ],
+      "downloads": []
+    }
+  ]
+}

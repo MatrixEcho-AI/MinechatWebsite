@@ -1,0 +1,26 @@
+{
+  "platform": "android",
+  "label": "Android",
+  "supported": true,
+  "latestVersion": "1.0.0",
+  "updatedAt": "2026-03-23",
+  "description": "Minechat Android 移动版下载信息。",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "releaseDate": "2026-03-23",
+      "supported": true,
+      "notes": [
+        "当前仅展示最新稳定版下载。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-1.0.0-android.apk",
+          "url": "./downloads/Minechat-1.0.0-android.apk"
+        }
+      ]
+    }
+  ]
+}
