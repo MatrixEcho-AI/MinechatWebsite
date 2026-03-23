@@ -13,33 +13,41 @@
 
   <style>
     :root{
-      --bg: #0b0c10;
-      --panel: #11131a;
-      --text: #e8eaf0;
-      --muted: #a9afc3;
-      --border: rgba(255,255,255,.10);
-      --focus: rgba(130,170,255,.55);
-      --accent: #82aaff;
-      --accent2: #8affc1;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 14px;
+      --bg-top: #edf4ff;
+      --bg-bottom: #f8fbff;
+      --bg: #f8fbff;
+      --panel: rgba(255,255,255,.82);
+      --panel-strong: rgba(255,255,255,.94);
+      --text: #111827;
+      --muted: #667085;
+      --border: rgba(17,24,39,.08);
+      --focus: rgba(47,124,255,.30);
+      --accent: #2f7cff;
+      --accent2: #16a34a;
+      --shadow: 0 18px 50px rgba(100,130,180,.18);
+      --shadow-soft: 0 8px 24px rgba(79,108,159,.10);
+      --radius: 22px;
 
-      --max: 1080px;
+      --max: 1120px;
       --pad: 28px;
       --gap: 14px;
     }
 
-    @media (prefers-color-scheme: light){
+    @media (prefers-color-scheme: dark){
       :root{
-        --bg: #ffffff;
-        --panel: #f6f7fb;
-        --text: #0f1222;
-        --muted: #4b536f;
-        --border: rgba(15,18,34,.12);
-        --focus: rgba(50,100,255,.35);
-        --accent: #2f62ff;
-        --accent2: #00a56a;
-        --shadow: 0 10px 30px rgba(15,18,34,.12);
+        --bg-top: #10182a;
+        --bg-bottom: #0b1020;
+        --bg: #0b1020;
+        --panel: rgba(17,24,39,.72);
+        --panel-strong: rgba(17,24,39,.88);
+        --text: #e7ecf5;
+        --muted: #a8b3c7;
+        --border: rgba(255,255,255,.10);
+        --focus: rgba(96,165,250,.38);
+        --accent: #60a5fa;
+        --accent2: #86efac;
+        --shadow: 0 18px 50px rgba(0,0,0,.35);
+        --shadow-soft: 0 8px 24px rgba(0,0,0,.24);
       }
     }
 
@@ -49,7 +57,9 @@
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
       color:var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top center, color-mix(in srgb, var(--accent) 14%, transparent), transparent 38%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
       line-height:1.55;
       font-size: 17px;
     }
@@ -63,8 +73,8 @@
       position:sticky;
       top:0;
       z-index:10;
-      background: color-mix(in srgb, var(--bg) 80%, transparent);
-      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -81,7 +91,7 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background: transparent;
+      background: rgba(255,255,255,.82);
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
       object-fit: contain;
@@ -98,28 +108,16 @@
       border: 1px solid transparent;
       color: var(--muted);
       font-size: 14px;
+      transition: border-color .18s ease, background-color .18s ease, color .18s ease;
     }
-    .navlink:hover{ border-color: var(--border); color: var(--text); text-decoration:none; }
-
-    .langbtn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--panel) 86%, transparent);
+    .navlink:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,.56);
       color: var(--text);
-      font-size: 14px;
-      cursor: pointer;
-      user-select:none;
-    }
-    .langbtn:focus-visible{
-      outline: 3px solid var(--focus);
-      outline-offset: 2px;
+      text-decoration:none;
     }
 
-    main{ padding: 52px 0 72px; }
+    main{ padding: 58px 0 84px; }
 
     .hero{
       display:grid;
@@ -137,12 +135,13 @@
     .panel{
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: color-mix(in srgb, var(--panel) 88%, transparent);
+      background: color-mix(in srgb, var(--panel) 96%, transparent);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
     }
 
-    .hero-left{ padding: 22px; }
-    .hero-right{ padding: 22px; }
+    .hero-left{ padding: 30px; }
+    .hero-right{ padding: 24px; background: color-mix(in srgb, var(--panel-strong) 94%, transparent); }
 
     .eyebrow{
       display:inline-flex;
@@ -151,35 +150,36 @@
       font-size: 13px;
       color: var(--muted);
       border: 1px solid var(--border);
-      padding: 6px 10px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: color-mix(in srgb, var(--panel) 80%, transparent);
+      background: rgba(255,255,255,.64);
     }
 
-    h1{ margin: 12px 0 10px; font-size: clamp(32px, 4.4vw, 52px); line-height:1.12; }
-    .lead{ margin: 0; color: var(--muted); font-size: 15px; }
+    h1{ margin: 14px 0 12px; font-size: clamp(36px, 5vw, 58px); line-height:1.04; letter-spacing: -.03em; }
+    .lead{ margin: 0; color: var(--muted); font-size: 16px; max-width: 40rem; }
 
     .tags{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 14px; }
     .tag{
       font-size: 13px;
       color: var(--muted);
       border: 1px solid var(--border);
-      padding: 6px 10px;
+      padding: 7px 12px;
       border-radius: 999px;
+      background: rgba(255,255,255,.56);
     }
 
     .note{
-      margin-top: 14px;
+      margin-top: 18px;
       font-size: 12px;
       color: var(--muted);
       border-left: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
-      padding: 8px 10px;
-      background: color-mix(in srgb, var(--panel) 76%, transparent);
+      padding: 10px 12px;
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
       border-radius: 10px;
       border: 1px solid var(--border);
     }
 
-    section{ margin-top: 18px; }
+    section{ margin-top: 22px; }
     .section-title{ padding: 16px 18px; border-bottom: 1px solid var(--border); }
     .section-title h2{ margin: 0; font-size: 18px; }
     .section-title p{ margin: 6px 0 0; color: var(--muted); font-size: 14px; }
@@ -196,10 +196,11 @@
 
     .card{
       border: 1px solid var(--border);
-      border-radius: 12px;
-      background: color-mix(in srgb, var(--panel) 86%, transparent);
-      padding: 14px;
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--panel-strong) 92%, transparent);
+      padding: 18px;
       min-height: 120px;
+      box-shadow: var(--shadow-soft);
     }
     .card h3{ margin: 0 0 6px; font-size: 16px; }
     .card p{ margin: 0; color: var(--muted); font-size: 14px; }
@@ -207,9 +208,10 @@
     .list{ padding: 22px 16px; display:grid; grid-template-columns: 1fr; gap: 10px; }
     .item{
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: color-mix(in srgb, var(--panel) 86%, transparent);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: color-mix(in srgb, var(--panel-strong) 92%, transparent);
+      box-shadow: var(--shadow-soft);
     }
     .item strong{ display:block; font-size: 14px; }
     .item span{ display:block; margin-top: 4px; color: var(--muted); font-size: 14px; }
@@ -227,20 +229,9 @@
       border: 1px dashed var(--border);
       padding: 8px 10px;
       border-radius: 10px;
-      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      background: color-mix(in srgb, var(--panel-strong) 88%, transparent);
     }
 
-    .sr-only{
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      white-space:nowrap;
-      border:0;
-    }
   </style>
 </head>
 <body>
@@ -258,12 +249,7 @@
           <a class="navlink" href="#product" data-i18n="navProduct">产品</a>
           <a class="navlink" href="#features" data-i18n="navFeatures">功能</a>
           <a class="navlink" href="#scenes" data-i18n="navScenes">场景</a>
-
-          <button id="langBtn" class="langbtn" type="button">
-            <span aria-hidden="true">🌐</span>
-            <span id="langBtnText">中文 / EN</span>
-            <span class="sr-only" data-i18n="langToggle">切换语言</span>
-          </button>
+          <a class="navlink" href="download.html" data-i18n="navDownload">下载</a>
         </nav>
       </div>
     </div>
@@ -379,155 +365,5 @@
     </div>
   </footer>
 
-  <script>
-    (function(){
-      const I18N = {
-        zh: {
-          navProduct: "产品",
-          navFeatures: "功能",
-          navScenes: "场景",
-          langToggle: "切换语言",
-
-          heroTitle: "Minechat：面向 Minecraft 内容创作者的协作工具",
-          heroLead: "文件共享、信息查询、信息更新、聊天交互——把创作与运营日常集中在一个更顺手的协作入口。",
-          tag1: "文件共享",
-          tag2: "信息查询",
-          tag3: "信息更新",
-          tag4: "聊天交互",
-
-          snapshotTitle: "产品概览",
-          snapshotLead: "为 Minecraft 创作者团队与协作伙伴提供更清晰的“素材—信息—沟通”工作流。",
-          snap1Title: "更快共享素材与文件",
-          snap1Desc: "在协作链路中减少反复传输与散落，提升交付效率。",
-          snap2Title: "更统一的信息查询入口",
-          snap2Desc: "把常用信息集中可查，降低沟通成本。",
-          snap3Title: "更顺畅的信息更新与同步",
-          snap3Desc: "让更新可追踪、可同步，减少遗漏与误差。",
-
-          featuresTitle: "核心功能",
-          featuresLead: "围绕内容创作协作的四类高频需求。",
-          f1Title: "文件共享",
-          f1Desc: "用于创作素材、工程文件与资源包的协作分发与管理。",
-          f2Title: "信息查询",
-          f2Desc: "快速查找协作所需的常用信息与关键数据。",
-          f3Title: "信息更新",
-          f3Desc: "对素材、进度、说明等信息进行更新与同步，保持一致性。",
-          f4Title: "聊天交互",
-          f4Desc: "在协作过程中进行即时沟通，把讨论贴近任务与内容。",
-          f5Title: "面向创作者",
-          f5Desc: "聚焦 Minecraft 内容创作团队的日常协作节奏与沟通习惯。",
-
-          scenesTitle: "适用场景",
-          scenesLead: "面向 Minecraft 服务器与创作协作的高频操作。",
-          s1Title: "与服务器内同步聊天",
-          s1Desc: "与服务器内聊天联动，让沟通与游戏内信息保持同步。",
-          s2Title: "发送特色文件格式",
-          s2Desc: "支持发送原理图、结构文件、资源包等常用创作文件，便于协作交付与流转。",
-          s3Title: "查看服务器大地图",
-          s3Desc: "支持查看服务器大地图，快速定位与浏览关键区域。",
-          s4Title: "查询与编辑 Minecraft 信息",
-          s4Desc: "支持查询与编辑 Minecraft 相关信息，便于维护与更新。",
-
-          footerBrand: "MatrixEcho",
-          footerProduct: "Minechat 协作软件",
-          footerLegal: "MatrixEcho（深圳回响矩阵人工智能有限公司）",
-          icpPrefix: "ICP 备案号：",
-        },
-        en: {
-          navProduct: "Product",
-          navFeatures: "Features",
-          navScenes: "Use cases",
-          langToggle: "Toggle language",
-
-          heroTitle: "Minechat: Collaboration for Minecraft creators",
-          heroLead: "File sharing, information lookup, updates, and chat—one smoother entry point for everyday creation and operations.",
-          tag1: "File sharing",
-          tag2: "Lookup",
-          tag3: "Updates",
-          tag4: "Chat",
-
-          snapshotTitle: "Snapshot",
-          snapshotLead: "A clearer workflow across assets, information, and communication for Minecraft creator teams and partners.",
-          snap1Title: "Share assets faster",
-          snap1Desc: "Reduce scattered transfers and keep delivery efficient.",
-          snap2Title: "One place to look things up",
-          snap2Desc: "Centralize frequently-used information and lower coordination cost.",
-          snap3Title: "Track and sync updates",
-          snap3Desc: "Keep changes visible and aligned to reduce misses and inconsistencies.",
-
-          featuresTitle: "Core features",
-          featuresLead: "Four high-frequency needs in creator collaboration.",
-          f1Title: "File sharing",
-          f1Desc: "Collaborative distribution and management for assets, project files, and resource packs.",
-          f2Title: "Information lookup",
-          f2Desc: "Quick access to commonly needed information and key data.",
-          f3Title: "Information updates",
-          f3Desc: "Update and sync assets, progress notes, and documentation to stay consistent.",
-          f4Title: "Chat interactions",
-          f4Desc: "Keep conversations close to the work—less context switching, fewer misses.",
-          f5Title: "Built for creators",
-          f5Desc: "Focused on the rhythm and habits of Minecraft content teams.",
-
-          scenesTitle: "Use cases",
-          scenesLead: "High-frequency actions for Minecraft servers and creator collaboration.",
-          s1Title: "Chat sync with the server",
-          s1Desc: "Link with in-server chat so conversations stay aligned with in-game context.",
-          s2Title: "Send creator-specific file formats",
-          s2Desc: "Send schematics, structure files, resource packs, and other common creator formats for smoother handoff.",
-          s3Title: "View the server world map",
-          s3Desc: "Open the server map to quickly browse and locate key areas.",
-          s4Title: "Query & edit Minecraft information",
-          s4Desc: "Query and edit Minecraft-related information for easier maintenance and updates.",
-
-          footerBrand: "MatrixEcho",
-          footerProduct: "Minechat",
-          footerLegal: "MatrixEcho (Shenzhen MatrixEcho AI Co., Ltd.)",
-          icpPrefix: "ICP Filing No.: ",
-        }
-      };
-
-      const LANG_KEY = "minechat_website_lang";
-
-      function detectDefaultLang(){
-        const saved = (localStorage.getItem(LANG_KEY) || "").toLowerCase();
-        if (saved === "zh" || saved === "en") return saved;
-
-        const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(x => String(x).toLowerCase());
-        const isZh = langs.some(l => l.startsWith("zh"));
-        return isZh ? "zh" : "en";
-      }
-
-      function applyLang(lang){
-        const dict = I18N[lang] || I18N.zh;
-
-        document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
-
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          if (!key) return;
-          if (Object.prototype.hasOwnProperty.call(dict, key)) {
-            el.textContent = dict[key];
-          }
-        });
-
-        // Button label: show current + available
-        const btnText = document.getElementById("langBtnText");
-        if (btnText) btnText.textContent = lang === "zh" ? "中文 / EN" : "EN / 中文";
-
-        try{ localStorage.setItem(LANG_KEY, lang); }catch(_e){}
-      }
-
-      const langBtn = document.getElementById("langBtn");
-      let current = detectDefaultLang();
-      applyLang(current);
-
-      if (langBtn){
-        langBtn.addEventListener("click", () => {
-          current = current === "zh" ? "en" : "zh";
-          applyLang(current);
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
