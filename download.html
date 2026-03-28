@@ -138,23 +138,63 @@
       color: var(--text);
     }
 
-    .hero {
-      text-align: center;
-      padding-top: 28px;
+    .platform-card:focus-visible,
+    .download-link:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(47, 124, 255, 0.18);
     }
 
-    .hero h1 {
+    .download-section {
+      margin-top: 18px;
+    }
+
+    .download-section .section-title {
+      margin-bottom: 16px;
+    }
+
+    .download-section .section-title h2 {
       margin: 0;
-      font-size: clamp(36px, 5vw, 56px);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
+      font-size: 18px;
+    }
+
+    .download-section .section-title span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .platform-card:focus-visible,
+    .platform-card:focus-visible,
+    .download-link:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(47, 124, 255, 0.18);
+    }
+
+    .platform-section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .platform-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 22px;
-      margin-top: 52px;
     }
 
     .platform-wrap {
@@ -284,6 +324,10 @@
       background: var(--panel-strong);
     }
 
+    .download-item-text {
+      min-width: 0;
+    }
+
     .download-item strong,
     .download-item span {
       display: block;
@@ -323,9 +367,10 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .page {
         width: min(calc(100% - 20px), var(--max));
+        padding: 18px 0 48px;
       }
 
       .topbar,
@@ -339,12 +384,63 @@
         min-width: unset;
       }
 
+      nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .navlink {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .platform-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+        scroll-snap-type: x proximity;
+      }
+
+      .platform-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .platform-wrap {
+        flex: 0 0 min(78vw, 240px);
+        scroll-snap-align: start;
+      }
+
+      .platform-card {
+        min-height: 196px;
+      }
+
+      .download-panel {
+        width: 100%;
+        margin-top: 24px;
+        padding: 18px;
       }
 
       .download-link {
         width: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .platform-wrap {
+        flex-basis: 84vw;
       }
     }
   </style>
@@ -373,20 +469,27 @@
   <div class="page">
 
     <main>
-      <section class="hero">
-        <h1>下载中心</h1>
+      <section class="download-section" aria-labelledby="currentDownloadTitle">
+        <div class="section-title">
+          <span id="platformHint">自动识别当前设备平台</span>
+        </div>
+
+        <section class="download-panel" aria-live="polite">
+          <div class="download-header">
+            <div>
+              <div id="downloadTitle" class="download-title">正在加载</div>
+              <div id="downloadMeta" class="download-meta"></div>
+            </div>
+          </div>
+          <div id="downloadContent" class="empty-state">正在读取版本信息...</div>
+        </section>
       </section>
 
-      <section id="platformGrid" class="platform-grid" aria-label="平台列表"></section>
-
-      <section class="download-panel" aria-live="polite">
-        <div class="download-header">
-          <div>
-            <div id="downloadTitle" class="download-title">正在加载</div>
-            <div id="downloadMeta" class="download-meta"></div>
-          </div>
+      <section class="platform-section" aria-labelledby="platformSectionTitle">
+        <div class="section-title">
+          <h2 id="platformSectionTitle">平台选择</h2>
         </div>
-        <div id="downloadContent" class="empty-state">正在读取版本信息...</div>
+        <section id="platformGrid" class="platform-grid" aria-label="平台列表"></section>
       </section>
     </main>
   </div>
@@ -408,6 +511,7 @@
       };
 
       const platformGridEl = document.getElementById('platformGrid');
+      const platformHintEl = document.getElementById('platformHint');
       const downloadTitleEl = document.getElementById('downloadTitle');
       const downloadMetaEl = document.getElementById('downloadMeta');
       const downloadContentEl = document.getElementById('downloadContent');
@@ -417,6 +521,7 @@
       async function init() {
         await Promise.all(Object.keys(PLATFORM_CONFIG).map(loadPlatformData));
         state.selectedPlatform = resolveInitialPlatform(getQueryPlatform());
+        renderPlatformHint();
         renderPlatforms();
         renderDownloadPanel(state.selectedPlatform);
       }
@@ -474,6 +579,16 @@
           return Boolean(state.payloads[key]);
         });
         return firstLoaded || 'windows';
+      }
+
+      function renderPlatformHint() {
+        const config = PLATFORM_CONFIG[state.detectedPlatform];
+        if (!platformHintEl) {
+          return;
+        }
+        platformHintEl.textContent = config
+          ? '当前设备：' + config.label
+          : '手动选择平台';
       }
 
       function renderPlatforms() {
@@ -538,7 +653,7 @@
         downloadContentEl.innerHTML = latest.downloads.map(function (item) {
           const meta = [item.kind, item.file].filter(Boolean).join(' · ');
           return '<div class="download-item">' +
-            '<div><strong>' + escapeHtml(item.name || label + ' 下载') + '</strong><span>' + escapeHtml(meta) + '</span></div>' +
+            '<div class="download-item-text"><strong>' + escapeHtml(item.name || label + ' 下载') + '</strong><span>' + escapeHtml(meta) + '</span></div>' +
             '<a class="download-link" href="' + escapeAttribute(item.url || '#') + '" download>下载</a>' +
           '</div>';
         }).join('');
@@ -547,6 +662,7 @@
       function updateQuery(platformKey) {
         const url = new URL(window.location.href);
         url.searchParams.set('platform', platformKey);
+        url.searchParams.delete('version');
         window.history.replaceState({}, '', url.toString());
       }
 
