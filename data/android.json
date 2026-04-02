@@ -2,10 +2,27 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "1.0",
-  "updatedAt": "2026-03-29",
+  "latestVersion": "1.2",
+  "updatedAt": "2026-04-02",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+    {
+      "version": "1.2",
+      "releaseDate": "2026-04-02",
+      "supported": true,
+      "notes": [
+        "切换至 React AntDesign 组件库，界面焕然一新。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-1.2-android.apk",
+          "url": "./downloads/Minechat-1.2-android.apk"
+        }
+      ]
+    },
+    
     {
       "version": "1.0",
       "releaseDate": "2026-03-29",
