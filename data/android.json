@@ -2,10 +2,28 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "1.4",
-  "updatedAt": "2026-04-13",
+  "latestVersion": "1.5",
+  "updatedAt": "2026-04-22",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+    {
+      "version": "1.5",
+      "releaseDate": "2026-04-22",
+      "supported": true,
+      "notes": [
+        "玩家详情页合并网盘文件浏览。",
+        "支持右滑返回动画。",
+        "修复部分已知问题。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-1.5-android.apk",
+          "url": "./downloads/Minechat-1.5-android.apk"
+        }
+      ]
+    },
     {
       "version": "1.4",
       "releaseDate": "2026-04-13",
