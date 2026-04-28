@@ -2,10 +2,29 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "1.5",
-  "updatedAt": "2026-04-22",
+  "latestVersion": "1.6",
+  "updatedAt": "2026-04-28",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+    {
+      "version": "1.6",
+      "releaseDate": "2026-04-28",
+      "supported": true,
+      "notes": [
+        "材料清单、资源管理、Home 选择支持模糊搜索弹窗。",
+        "发送坐标支持 Home 选择弹窗导入。",
+        "优化弹窗列表固定高度与交互体验。",
+        "修复部分已知问题。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-1.6-android.apk",
+          "url": "./downloads/Minechat-1.6-android.apk"
+        }
+      ]
+    },
     {
       "version": "1.5",
       "releaseDate": "2026-04-22",
@@ -27,7 +46,7 @@
     {
       "version": "1.4",
       "releaseDate": "2026-04-13",
-      "supported": true,
+      "supported": false,
       "notes": [
         "修复部分已知问题。",
         "交互体验优化。"
@@ -44,7 +63,7 @@
     {
       "version": "1.3",
       "releaseDate": "2026-04-03",
-      "supported": true,
+      "supported": false,
       "notes": [
         "包含聊天详情交互修复与移动端体验优化。"
       ],
@@ -60,7 +79,7 @@
     {
       "version": "1.2",
       "releaseDate": "2026-04-02",
-      "supported": true,
+      "supported": false,
       "notes": [
         "切换至 React AntDesign 组件库，界面焕然一新。"
       ],
@@ -76,7 +95,7 @@
     {
       "version": "1.0",
       "releaseDate": "2026-03-29",
-      "supported": true,
+      "supported": false,
       "notes": [
         "当前仅展示最新稳定版下载。"
       ],
