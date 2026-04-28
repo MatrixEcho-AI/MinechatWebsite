@@ -2,14 +2,36 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "1.6",
+  "latestVersion": "1.7",
   "updatedAt": "2026-04-28",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
     {
-      "version": "1.6",
+      "version": "1.7",
       "releaseDate": "2026-04-28",
       "supported": true,
+      "notes": [
+        "版本更新弹窗改为原生 Dialog，独立于 WebView 页面生命周期。",
+        "弹窗样式改为 antd-mobile 风格，支持系统深色/浅色模式。",
+        "修复更新弹窗被登录重定向覆盖的问题。",
+        "材料清单、资源管理、Home 选择支持模糊搜索弹窗。",
+        "发送坐标支持 Home 选择弹窗导入。",
+        "优化弹窗列表固定高度与交互体验。",
+        "修复部分已知问题。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-1.7-android.apk",
+          "url": "./downloads/Minechat-1.7-android.apk"
+        }
+      ]
+    },
+    {
+      "version": "1.6",
+      "releaseDate": "2026-04-28",
+      "supported": false,
       "notes": [
         "材料清单、资源管理、Home 选择支持模糊搜索弹窗。",
         "发送坐标支持 Home 选择弹窗导入。",
@@ -28,7 +50,7 @@
     {
       "version": "1.5",
       "releaseDate": "2026-04-22",
-      "supported": true,
+      "supported": false,
       "notes": [
         "玩家详情页合并网盘文件浏览。",
         "支持右滑返回动画。",
