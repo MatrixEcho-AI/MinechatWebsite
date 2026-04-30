@@ -2,10 +2,27 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "1.1.0",
-  "updatedAt": "2026-04-13",
+  "latestVersion": "1.2.0",
+  "updatedAt": "2026-04-30",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
+    {
+      "version": "1.2.0",
+      "releaseDate": "2026-04-30",
+      "supported": true,
+      "notes": [
+        "支持图片、视频等媒体文件预览。",
+        "重构 Microsoft 账号登录流程。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v1.2.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-1.2.0-win.exe",
+          "url": "./downloads/Minechat-1.2.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "1.1.0",
       "releaseDate": "2026-04-13",
