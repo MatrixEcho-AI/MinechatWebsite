@@ -26,7 +26,7 @@
     {
       "version": "1.1.0",
       "releaseDate": "2026-04-13",
-      "supported": true,
+      "supported": false,
       "notes": [
         "支持网盘文件功能。"
       ],
@@ -42,7 +42,7 @@
     {
       "version": "1.0.2",
       "releaseDate": "2026-04-03",
-      "supported": true,
+      "supported": false,
       "notes": [
         "包含近期聊天交互与稳定性修复。"
       ],
@@ -58,7 +58,7 @@
     {
       "version": "1.0.1",
       "releaseDate": "2026-03-28",
-      "supported": true,
+      "supported": false,
       "notes": [
         "当前仅展示最新稳定版下载。"
       ],
