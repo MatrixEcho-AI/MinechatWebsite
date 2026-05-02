@@ -2,10 +2,32 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "1.7",
-  "updatedAt": "2026-04-28",
+  "latestVersion": "2.0",
+  "updatedAt": "2026-05-02",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+    {
+      "version": "2.0",
+      "releaseDate": "2026-05-02",
+      "supported": true,
+      "notes": [
+        "新增图文系统：文章/图片画廊，支持浏览与搜索。",
+        "新增公告功能：文章可固定到会话列表顶部。",
+        "新增文件发送二次确认：选择图片可预览后发送。",
+        "修复群聊通知不显示发送人名称的问题。",
+        "修复玩家名片私聊按钮跳转异常。",
+        "公告数据缓存，离线也可查看。",
+        "图文搜索修复：世界和类别可正确匹配。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-2.0-android.apk",
+          "url": "./downloads/Minechat-2.0-android.apk"
+        }
+      ]
+    },
     {
       "version": "1.7",
       "releaseDate": "2026-04-28",
