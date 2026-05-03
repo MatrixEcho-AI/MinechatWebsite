@@ -2,10 +2,33 @@
   "platform": "mac",
   "label": "macOS",
   "supported": true,
-  "latestVersion": "1.1.0",
-  "updatedAt": "2026-04-13",
+  "latestVersion": "2.0.0",
+  "updatedAt": "2026-05-03",
   "description": "Minechat macOS 桌面版下载信息。",
   "versions": [
+    {
+      "version": "2.0.0",
+      "releaseDate": "2026-05-03",
+      "supported": true,
+      "notes": [
+        "全新图文系统：瀑布流画廊、独立图片查看器、文章查看器。",
+        "公告功能：左侧边栏显示固定文章，点击打开详情。",
+        "图片查看器支持缩放和地图跳转（主窗口打开）。",
+        "图文搜索全面修复：世界、类别正确匹配。",
+        "图片尺寸预加载：瀑布流布局不再因加载抖动。",
+        "PC 端公告缓存，离线也可查看。",
+        "修复请求完成后会话跳到全服的问题。",
+        "修复群聊通知不显示发送人名称。"
+      ],
+      "downloads": [
+        {
+          "name": "macOS v2.0.0 安装包",
+          "kind": "DMG",
+          "file": "Minechat-2.0.0-mac.dmg",
+          "url": "./downloads/Minechat-2.0.0-mac.dmg"
+        }
+      ]
+    },
     {
       "version": "1.1.0",
       "releaseDate": "2026-04-13",
