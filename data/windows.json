@@ -2,10 +2,29 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "2.1.0",
-  "updatedAt": "2026-05-09",
+  "latestVersion": "2.2.0",
+  "updatedAt": "2026-05-11",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
+    {
+      "version": "2.2.0",
+      "releaseDate": "2026-05-11",
+      "supported": true,
+      "notes": [
+        "支持会话详情连续消息紧凑分组显示，头像与发送者信息按消息段合并展示。",
+        "支持在线玩家列表，便于在聊天侧边快速查看当前在线成员。",
+        "支持文件发送前二次确认、作者下载和按原始文件名保存。",
+        "修复历史消息分页在顶部卡住、文件名编码异常、表情边框与消息宽度等界面问题。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v2.2.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-2.2.0-win.exe",
+          "url": "./downloads/Minechat-2.2.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "2.1.0",
       "releaseDate": "2026-05-09",

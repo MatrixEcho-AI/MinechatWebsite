@@ -2,10 +2,29 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "2.1",
-  "updatedAt": "2026-05-09",
+  "latestVersion": "2.2",
+  "updatedAt": "2026-05-11",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+    {
+      "version": "2.2",
+      "releaseDate": "2026-05-11",
+      "supported": true,
+      "notes": [
+        "支持会话详情连续消息紧凑分组与头像悬浮展示，移动端聊天阅读更接近 Telegram 风格。",
+        "修复 @ 提及输入、消息宽度、时间显示、表情边框与表情宽度等多项移动端交互问题。",
+        "支持在线玩家列表，并修复深色模式与部分弹层关闭行为问题。",
+        "修复历史消息分页在顶部卡住、乱码显示与若干聊天布局问题。"
+      ],
+      "downloads": [
+        {
+          "name": "Android 安装包",
+          "kind": "APK",
+          "file": "Minechat-2.2-android.apk",
+          "url": "./downloads/Minechat-2.2-android.apk"
+        }
+      ]
+    },
     {
       "version": "2.1",
       "releaseDate": "2026-05-09",
