@@ -2,28 +2,45 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "3.0.0",
-  "updatedAt": "2026-05-14",
+  "latestVersion": "4.0.0",
+  "updatedAt": "2026-05-18",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
       {
-        "version": "3.0.0",
-        "releaseDate": "2026-05-14",
+        "version": "4.0.0",
+        "releaseDate": "2026-05-18",
         "supported": true,
         "notes": [
-          "支持 litematic 原理图 3D 预览，并修复预览材质加载问题。",
-          "支持将原理图一键转换为材料列表，并在主窗口直接跳转导入。",
-          "支持 AgHelper 新玩家引导。"
+          "支持合并转发和批量转发。",
+          "支持发送B站视频。"
         ],
         "downloads": [
           {
-            "name": "Windows v3.0.0 安装包",
+            "name": "Windows v4.0.0 安装包",
             "kind": "EXE",
-            "file": "Minechat-3.0.0-win.exe",
-            "url": "./downloads/Minechat-3.0.0-win.exe"
+            "file": "Minechat-4.0.0-win.exe",
+            "url": "./downloads/Minechat-4.0.0-win.exe"
           }
         ]
       },
+    {
+      "version": "3.0.0",
+      "releaseDate": "2026-05-14",
+      "supported": true,
+      "notes": [
+        "支持 litematic 原理图 3D 预览，并修复预览材质加载问题。",
+        "支持将原理图一键转换为材料列表，并在主窗口直接跳转导入。",
+        "支持 AgHelper 新玩家引导。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v3.0.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-3.0.0-win.exe",
+          "url": "./downloads/Minechat-3.0.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "2.2.0",
       "releaseDate": "2026-05-11",
