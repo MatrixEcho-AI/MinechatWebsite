@@ -44,7 +44,7 @@
     {
       "version": "2.2.0",
       "releaseDate": "2026-05-11",
-      "supported": true,
+      "supported": false,
       "notes": [
         "支持会话详情连续消息紧凑分组显示，头像与发送者信息按消息段合并展示。",
         "支持在线玩家列表，便于在聊天侧边快速查看当前在线成员。",
@@ -63,7 +63,7 @@
     {
       "version": "2.1.0",
       "releaseDate": "2026-05-09",
-      "supported": true,
+      "supported": false,
       "notes": [
         "修复聊天文件上传/下载稳定性问题。",
         "支持文件上传与下载进度显示。",
@@ -81,7 +81,7 @@
     {
       "version": "2.0.0",
       "releaseDate": "2026-05-02",
-      "supported": true,
+      "supported": false,
       "notes": [
         "全新图文系统：瀑布流画廊、独立图片查看器、文章查看器。",
         "公告功能：左侧边栏显示固定文章，点击打开详情。",
@@ -104,7 +104,7 @@
     {
       "version": "1.2.0",
       "releaseDate": "2026-04-30",
-      "supported": true,
+      "supported": false,
       "notes": [
         "支持图片、视频等媒体文件预览。",
         "重构 Microsoft 账号登录流程。"
