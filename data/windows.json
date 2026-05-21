@@ -2,27 +2,43 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "4.0.0",
-  "updatedAt": "2026-05-18",
+  "latestVersion": "4.1.0",
+  "updatedAt": "2026-05-22",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
-      {
-        "version": "4.0.0",
-        "releaseDate": "2026-05-18",
-        "supported": true,
-        "notes": [
-          "支持合并转发和批量转发。",
-          "支持发送B站视频。"
-        ],
-        "downloads": [
-          {
-            "name": "Windows v4.0.0 安装包",
-            "kind": "EXE",
-            "file": "Minechat-4.0.0-win.exe",
-            "url": "./downloads/Minechat-4.0.0-win.exe"
-          }
-        ]
-      },
+    {
+      "version": "4.1.0",
+      "releaseDate": "2026-05-22",
+      "supported": true,
+      "notes": [
+        "优化界面窗口。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v4.1.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-4.1.0-win.exe",
+          "url": "./downloads/Minechat-4.1.0-win.exe"
+        }
+      ]
+    },
+    {
+      "version": "4.0.0",
+      "releaseDate": "2026-05-18",
+      "supported": true,
+      "notes": [
+        "支持合并转发和批量转发。",
+        "支持发送B站视频。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v4.0.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-4.0.0-win.exe",
+          "url": "./downloads/Minechat-4.0.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "3.0.0",
       "releaseDate": "2026-05-14",
