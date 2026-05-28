@@ -2,14 +2,33 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "5.1",
-  "updatedAt": "2026-05-27",
+  "latestVersion": "5.2",
+  "updatedAt": "2026-05-28",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
       {
+        "version": "5.2",
+        "releaseDate": "2026-05-28",
+        "supported": true,
+        "notes": [
+          "全面重构应用程序。",
+          "支持应用内消息弹窗。",
+          "支持无网模式。",
+          "优化交互体验。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-5.2-android.apk",
+            "url": "./downloads/Minechat-5.2-android.apk"
+          }
+        ]
+      },
+      {
         "version": "5.1",
         "releaseDate": "2026-05-27",
-        "supported": true,
+        "supported": false,
         "notes": [
           "全面重构应用程序。",
           "支持应用内消息弹窗。",
