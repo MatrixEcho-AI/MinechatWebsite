@@ -2,10 +2,31 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "5.2",
-  "updatedAt": "2026-05-28",
+  "latestVersion": "5.3",
+  "updatedAt": "2026-05-30",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+      {
+        "version": "5.3",
+        "releaseDate": "2026-05-30",
+        "supported": true,
+        "notes": [
+          "修复崩溃问题。",
+          "修复登录页跳转问题。",
+          "修复登录后仍可返回登录页的问题。",
+          "修复文章中链接跳转问题。",
+          "优化左滑回复体验。",
+          "新增图片加载动画。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-5.3-android.apk",
+            "url": "./downloads/Minechat-5.3-android.apk"
+          }
+        ]
+      },
       {
         "version": "5.2",
         "releaseDate": "2026-05-28",
