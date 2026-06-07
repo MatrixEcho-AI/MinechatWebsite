@@ -2,10 +2,26 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "5.4",
-  "updatedAt": "2026-06-07",
+  "latestVersion": "5.5",
+  "updatedAt": "2026-06-08",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+      {
+        "version": "5.5",
+        "releaseDate": "2026-06-08",
+        "supported": true,
+        "notes": [
+          "包含一个与通知安全有关的紧急修复，强烈建议所有用户更新。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-5.5-android.apk",
+            "url": "./downloads/Minechat-5.5-android.apk"
+          }
+        ]
+      },
       {
         "version": "5.4",
         "releaseDate": "2026-06-07",
@@ -27,7 +43,7 @@
       {
         "version": "5.3",
         "releaseDate": "2026-05-30",
-        "supported": true,
+        "supported": false,
         "notes": [
           "修复崩溃问题。",
           "修复登录页跳转问题。",
@@ -48,7 +64,7 @@
       {
         "version": "5.2",
         "releaseDate": "2026-05-28",
-        "supported": true,
+        "supported": false,
         "notes": [
           "全面重构应用程序。",
           "支持应用内消息弹窗。",
@@ -105,7 +121,7 @@
       {
         "version": "4.0",
         "releaseDate": "2026-05-18",
-        "supported": true,
+        "supported": false,
         "notes": [
           "支持合并转发和批量转发。",
           "支持发送B站视频。"
@@ -122,7 +138,7 @@
     {
       "version": "3.0",
       "releaseDate": "2026-05-14",
-      "supported": true,
+      "supported": false,
       "notes": [
         "支持 litematic 原理图 3D 预览，可在移动端直接查看结构。",
         "支持将原理图转换为材料列表，并自动带入材料页创建流程。"
