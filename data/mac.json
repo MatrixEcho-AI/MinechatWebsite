@@ -2,14 +2,30 @@
   "platform": "mac",
   "label": "macOS",
   "supported": true,
-  "latestVersion": "2.0.0",
-  "updatedAt": "2026-05-03",
+  "latestVersion": "4.1.0",
+  "updatedAt": "2026-05-22",
   "description": "Minechat macOS 桌面版下载信息。",
   "versions": [
     {
+      "version": "4.1.0",
+      "releaseDate": "2026-05-22",
+      "supported": true,
+      "notes": [
+        "优化界面窗口。"
+      ],
+      "downloads": [
+        {
+          "name": "macOS v4.1.0 安装包",
+          "kind": "DMG",
+          "file": "Minechat-4.1.0-mac.dmg",
+          "url": "./downloads/Minechat-4.1.0-mac.dmg"
+        }
+      ]
+    },
+    {
       "version": "2.0.0",
       "releaseDate": "2026-05-03",
-      "supported": true,
+      "supported": false,
       "notes": [
         "全新图文系统：瀑布流画廊、独立图片查看器、文章查看器。",
         "公告功能：左侧边栏显示固定文章，点击打开详情。",
@@ -32,7 +48,7 @@
     {
       "version": "1.1.0",
       "releaseDate": "2026-04-13",
-      "supported": true,
+      "supported": false,
       "notes": [
         "支持网盘文件功能。"
       ],
@@ -48,7 +64,7 @@
     {
       "version": "1.0.1",
       "releaseDate": "2026-03-28",
-      "supported": true,
+      "supported": false,
       "notes": [
         "当前仅展示最新稳定版下载。"
       ],
