@@ -2,10 +2,29 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "4.1.0",
-  "updatedAt": "2026-05-22",
+  "latestVersion": "4.2.0",
+  "updatedAt": "2026-06-15",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
+    {
+      "version": "4.2.0",
+      "releaseDate": "2026-06-15",
+      "supported": true,
+      "notes": [
+        "优化界面窗口。",
+        "新增b23.tv链接识别功能。",
+        "新增URL链接识别功能。",
+        "优化玩家名片页面。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v4.2.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-4.2.0-win.exe",
+          "url": "./downloads/Minechat-4.2.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "4.1.0",
       "releaseDate": "2026-05-22",
