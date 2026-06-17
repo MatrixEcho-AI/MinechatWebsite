@@ -2,10 +2,36 @@
   "platform": "mac",
   "label": "macOS",
   "supported": true,
-  "latestVersion": "4.1.0",
-  "updatedAt": "2026-05-22",
+  "latestVersion": "4.3.0",
+  "updatedAt": "2026-06-17",
   "description": "Minechat macOS 桌面版下载信息。",
   "versions": [
+    {
+      "version": "4.3.0",
+      "releaseDate": "2026-06-17",
+      "supported": true,
+      "notes": [
+        "新增登录记录活跃会话管理，支持查看设备信息和远程下线。",
+        "新增TOTP两步验证提醒卡片，在聊天侧边栏显示。",
+        "新增会话列表最后消息时间显示。",
+        "新增输入草稿持久化，未发送的消息、引用和@提及重启不丢失。",
+        "新增聊天头像点击跳转玩家名片。",
+        "新增储存设施物品名称Minecraft中文翻译，搜索同时匹配翻译和数据值。",
+        "优化登录流程，主窗口直接完成微软OAuth，支持清空登录状态。",
+        "优化登出体验，退出登录或被强制下线时自动关闭所有子窗口。",
+        "优化表情包管理为独立窗口，删除确认使用应用内弹窗。",
+        "优化工作台个人信息显示，选项改为折叠面板，个人资料磁盘缓存加速。",
+        "修复设置窗口、AgHelper页面深色模式适配问题，支持跨窗口实时同步。"
+      ],
+      "downloads": [
+        {
+          "name": "macOS v4.3.0 安装包",
+          "kind": "DMG",
+          "file": "Minechat-4.3.0-mac.dmg",
+          "url": "./downloads/Minechat-4.3.0-mac.dmg"
+        }
+      ]
+    },
     {
       "version": "4.1.0",
       "releaseDate": "2026-05-22",
