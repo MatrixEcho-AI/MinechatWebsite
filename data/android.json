@@ -2,10 +2,28 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "5.5",
-  "updatedAt": "2026-06-08",
+  "latestVersion": "5.6",
+  "updatedAt": "2026-06-17",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+      {
+        "version": "5.6",
+        "releaseDate": "2026-06-17",
+        "supported": true,
+        "notes": [
+          "新增登录记录活跃会话管理，支持查看设备信息和远程下线。",
+          "优化鉴权失败时自动清除本地状态并跳转登录页。",
+          "优化下线确认弹窗为应用内弹窗样式。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-5.6-android.apk",
+            "url": "./downloads/Minechat-5.6-android.apk"
+          }
+        ]
+      },
       {
         "version": "5.5",
         "releaseDate": "2026-06-08",
