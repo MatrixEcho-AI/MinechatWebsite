@@ -2,10 +2,26 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "4.3.0",
-  "updatedAt": "2026-06-17",
+  "latestVersion": "5.0.0",
+  "updatedAt": "2026-06-28",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
+    {
+      "version": "5.0.0",
+      "releaseDate": "2026-06-28",
+      "supported": true,
+      "notes": [
+        "新增搜索消息功能。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v5.0.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-5.0.0-win.exe",
+          "url": "./downloads/Minechat-5.0.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "4.3.0",
       "releaseDate": "2026-06-17",
