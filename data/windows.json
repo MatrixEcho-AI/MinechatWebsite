@@ -2,10 +2,26 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "5.0.0",
-  "updatedAt": "2026-06-28",
+  "latestVersion": "5.1.0",
+  "updatedAt": "2026-07-09",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
+    {
+      "version": "5.1.0",
+      "releaseDate": "2026-07-09",
+      "supported": true,
+      "notes": [
+        "新增Home、资源管理的转发功能。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v5.1.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-5.1.0-win.exe",
+          "url": "./downloads/Minechat-5.1.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "5.0.0",
       "releaseDate": "2026-06-28",
