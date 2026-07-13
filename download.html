@@ -500,7 +500,7 @@
         windows: { label: 'Windows', file: 'data/windows.json', icon: 'windows', subtitle: '桌面版' },
         mac: { label: 'macOS', file: 'data/mac.json', icon: 'mac', subtitle: '桌面版' },
         android: { label: 'Android', file: 'data/android.json', icon: 'android', subtitle: '移动版' },
-        ios: { label: 'iOS', file: 'data/ios.json', icon: 'ios', subtitle: '移动版' }
+        ios: { label: 'iOS', appStoreUrl: 'https://apps.apple.com/app/minechat/id6760942658', icon: 'ios', subtitle: '移动版' }
       };
 
       const state = {
@@ -545,6 +545,19 @@
       }
 
       async function loadPlatformData(platformKey) {
+        const config = PLATFORM_CONFIG[platformKey];
+        if (!config.file) {
+          state.payloads[platformKey] = {
+            label: config.label,
+            supported: true,
+            latestVersion: 'App Store',
+            unsupportedMessage: '',
+            updatedAt: '',
+            latest: null,
+            appStoreUrl: config.appStoreUrl || ''
+          };
+          return;
+        }
         try {
           const response = await fetch(PLATFORM_CONFIG[platformKey].file, { cache: 'no-store' });
           if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -598,6 +611,7 @@
           const payload = state.payloads[platformKey];
           const version = payload && payload.latestVersion ? payload.latestVersion : '--';
           const supported = payload ? payload.supported : false;
+          const versionHtml = config.appStoreUrl ? '' : '<div class="platform-version">V' + escapeHtml(version) + '</div>';
           const card = document.createElement('div');
           card.className = 'platform-wrap';
           card.innerHTML = '' +
@@ -609,7 +623,7 @@
               '<span class="platform-name">' + escapeHtml(config.label) + '</span>' +
               '<span class="platform-subtitle">' + escapeHtml(config.subtitle) + '</span>' +
             '</button>' +
-            '<div class="platform-version">V' + escapeHtml(version) + '</div>';
+            versionHtml;
 
           const button = card.querySelector('.platform-card');
           button.addEventListener('click', function () {
@@ -640,6 +654,17 @@
         downloadMetaEl.textContent = latest && latest.releaseDate
           ? '版本 ' + (latest.version || '--') + ' · ' + latest.releaseDate
           : '版本 ' + (payload.latestVersion || '--');
+
+        if (payload.appStoreUrl) {
+          downloadContentEl.className = 'download-list';
+          downloadContentEl.dataset.messageLocked = '';
+          downloadContentEl.innerHTML =
+            '<div class="download-item">' +
+              '<div class="download-item-text"><strong>从 App Store 下载</strong><span>前往 App Store 获取最新版本</span></div>' +
+              '<a class="download-link" href="' + escapeAttribute(payload.appStoreUrl) + '" target="_blank" rel="noopener">前往下载</a>' +
+            '</div>';
+          return;
+        }
 
         if (!payload.supported || !latest || !Array.isArray(latest.downloads) || latest.downloads.length === 0) {
           downloadContentEl.className = 'empty-state';
