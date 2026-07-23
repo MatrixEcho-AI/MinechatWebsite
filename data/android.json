@@ -2,10 +2,26 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "6.1",
-  "updatedAt": "2026-07-01",
+  "latestVersion": "7.0",
+  "updatedAt": "2026-07-23",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+    {
+        "version": "7.0",
+        "releaseDate": "2026-07-23",
+        "supported": true,
+        "notes": [
+          "新增表单功能。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-7.0-android.apk",
+            "url": "./downloads/Minechat-7.0-android.apk"
+          }
+        ]
+      },
       {
         "version": "6.1",
         "releaseDate": "2026-07-01",
@@ -25,7 +41,7 @@
       {
         "version": "6.0",
         "releaseDate": "2026-06-28",
-        "supported": true,
+        "supported": false,
         "notes": [
           "新增搜索消息功能。"
         ],
@@ -41,7 +57,7 @@
       {
         "version": "5.7",
         "releaseDate": "2026-06-27",
-        "supported": true,
+        "supported": false,
         "notes": [
           "修复深色模式下文字颜色问题。",
           "修复全服聊天气泡宽度问题。",
@@ -60,7 +76,7 @@
       {
         "version": "5.6",
         "releaseDate": "2026-06-17",
-        "supported": true,
+        "supported": false,
         "notes": [
           "新增登录记录活跃会话管理，支持查看设备信息和远程下线。",
           "优化鉴权失败时自动清除本地状态并跳转登录页。",
@@ -78,7 +94,7 @@
       {
         "version": "5.5",
         "releaseDate": "2026-06-08",
-        "supported": true,
+        "supported": false,
         "notes": [
           "包含一个与通知安全有关的紧急修复，强烈建议所有用户更新。"
         ],
@@ -94,7 +110,7 @@
       {
         "version": "5.4",
         "releaseDate": "2026-06-07",
-        "supported": true,
+        "supported": false,
         "notes": [
           "修复崩溃问题。",
           "修复深色模式下文字颜色问题。",
