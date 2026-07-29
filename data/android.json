@@ -2,11 +2,27 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "7.0",
-  "updatedAt": "2026-07-23",
+  "latestVersion": "7.1",
+  "updatedAt": "2026-07-29",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
-    {
+      {
+        "version": "7.1",
+        "releaseDate": "2026-07-29",
+        "supported": true,
+        "notes": [
+          "优化应用体验。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-7.1-android.apk",
+            "url": "./downloads/Minechat-7.1-android.apk"
+          }
+        ]
+      },
+      {
         "version": "7.0",
         "releaseDate": "2026-07-23",
         "supported": true,
