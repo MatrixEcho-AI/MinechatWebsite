@@ -2,10 +2,26 @@
   "platform": "mac",
   "label": "macOS",
   "supported": true,
-  "latestVersion": "6.1.0",
-  "updatedAt": "2026-07-29",
+  "latestVersion": "6.2.0",
+  "updatedAt": "2026-08-14",
   "description": "Minechat macOS 桌面版下载信息。",
   "versions": [
+    {
+      "version": "6.2.0",
+      "releaseDate": "2026-08-14",
+      "supported": true,
+      "notes": [
+        "优化应用体验。"
+      ],
+      "downloads": [
+        {
+          "name": "macOS v6.2.0 安装包",
+          "kind": "DMG",
+          "file": "Minechat-6.2.0-mac.dmg",
+          "url": "./downloads/Minechat-6.2.0-mac.dmg"
+        }
+      ]
+    },
     {
       "version": "6.1.0",
       "releaseDate": "2026-07-29",
