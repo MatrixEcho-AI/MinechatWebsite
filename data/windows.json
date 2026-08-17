@@ -2,10 +2,26 @@
   "platform": "windows",
   "label": "Windows",
   "supported": true,
-  "latestVersion": "6.2.0",
-  "updatedAt": "2026-08-14",
+  "latestVersion": "7.0.0",
+  "updatedAt": "2026-08-16",
   "description": "Minechat Windows 桌面版下载信息。",
   "versions": [
+    {
+      "version": "7.0.0",
+      "releaseDate": "2026-08-16",
+      "supported": true,
+      "notes": [
+        "优化前端页面布局。"
+      ],
+      "downloads": [
+        {
+          "name": "Windows v7.0.0 安装包",
+          "kind": "EXE",
+          "file": "Minechat-7.0.0-win.exe",
+          "url": "./downloads/Minechat-7.0.0-win.exe"
+        }
+      ]
+    },
     {
       "version": "6.2.0",
       "releaseDate": "2026-08-14",
