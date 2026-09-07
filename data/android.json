@@ -2,10 +2,28 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "7.3",
-  "updatedAt": "2026-08-18",
+  "latestVersion": "8.0",
+  "updatedAt": "2026-09-08",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+      {
+        "version": "8.0",
+        "releaseDate": "2026-09-08",
+        "supported": true,
+        "notes": [
+          "新增搜索功能。",
+          "优化创建群聊功能。",
+          "优化弱网环境消息加载。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-8.0-android.apk",
+            "url": "./downloads/Minechat-8.0-android.apk"
+          }
+        ]
+      },
       {
         "version": "7.3",
         "releaseDate": "2026-08-18",
