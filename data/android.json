@@ -25,7 +25,7 @@
       {
         "version": "8.0",
         "releaseDate": "2026-09-08",
-        "supported": true,
+        "supported": false,
         "notes": [
           "新增搜索功能。",
           "优化创建群聊功能。",
@@ -43,7 +43,7 @@
       {
         "version": "7.3",
         "releaseDate": "2026-08-18",
-        "supported": true,
+        "supported": false,
         "notes": [
           "优化应用体验。"
         ],
@@ -59,7 +59,7 @@
       {
         "version": "7.2",
         "releaseDate": "2026-08-14",
-        "supported": true,
+        "supported": false,
         "notes": [
           "优化应用体验。"
         ],
@@ -75,7 +75,7 @@
       {
         "version": "7.1",
         "releaseDate": "2026-07-29",
-        "supported": true,
+        "supported": false,
         "notes": [
           "优化应用体验。"
         ],
@@ -91,7 +91,7 @@
       {
         "version": "7.0",
         "releaseDate": "2026-07-23",
-        "supported": true,
+        "supported": false,
         "notes": [
           "新增表单功能。"
         ],
@@ -107,7 +107,7 @@
       {
         "version": "6.1",
         "releaseDate": "2026-07-01",
-        "supported": true,
+        "supported": false,
         "notes": [
           "修复原理图预览功能。"
         ],
