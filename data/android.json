@@ -2,10 +2,31 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "9.1",
-  "updatedAt": "2026-09-23",
+  "latestVersion": "9.2",
+  "updatedAt": "2026-09-27",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+      {
+        "version": "9.2",
+        "releaseDate": "2026-09-27",
+        "supported": true,
+        "notes": [
+          "支持自定义应用主题色。",
+          "优化消息发送进度与重试，离开聊天后仍可继续发送。",
+          "支持将选中的聊天消息截图保存。",
+          "支持预览文章中的图片，并显示图文贡献者头像。",
+          "仓库物品支持中文名称与中英文搜索。",
+          "优化图文、工作台及资源管理页面，并修复搜索框和聊天消息显示问题。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-9.2-android.apk",
+            "url": "./downloads/Minechat-9.2-android.apk"
+          }
+        ]
+      },
       {
         "version": "9.1",
         "releaseDate": "2026-09-23",
