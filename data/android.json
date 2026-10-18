@@ -2,10 +2,31 @@
   "platform": "android",
   "label": "Android",
   "supported": true,
-  "latestVersion": "9.2",
-  "updatedAt": "2026-09-27",
+  "latestVersion": "10.0",
+  "updatedAt": "2026-10-18",
   "description": "Minechat Android 移动版下载信息。",
   "versions": [
+      {
+        "version": "10.0",
+        "releaseDate": "2026-10-18",
+        "supported": true,
+        "notes": [
+          "新增群聊全员禁言与成员禁言，支持时长设置、名单管理和解除。",
+          "新增富文本文章编辑器，支持文字排版、图片上传及世界和类型分类。",
+          "支持从玩家详情页分享玩家名片到聊天。",
+          "统一转发与分享会话列表，优化头像、置顶排序、缓存加载与失败重试。",
+          "修复图文通知跳转、逐条转发模式和玩家名片点击问题。",
+          "修复头像加载失败后反复刷新问题，并优化部分界面细节。"
+        ],
+        "downloads": [
+          {
+            "name": "Android 安装包",
+            "kind": "APK",
+            "file": "Minechat-10.0-android.apk",
+            "url": "./downloads/Minechat-10.0-android.apk"
+          }
+        ]
+      },
       {
         "version": "9.2",
         "releaseDate": "2026-09-27",
