@@ -2,10 +2,27 @@
   "platform": "mac",
   "label": "macOS",
   "supported": true,
-  "latestVersion": "7.0.0",
-  "updatedAt": "2026-08-16",
+  "latestVersion": "8.0.0",
+  "updatedAt": "2026-10-24",
   "description": "Minechat macOS 桌面版下载信息。",
   "versions": [
+    {
+      "version": "8.0.0",
+      "releaseDate": "2026-10-24",
+      "supported": true,
+      "notes": [
+        "新增信箱功能。",
+        "优化前端页面布局。"
+      ],
+      "downloads": [
+        {
+          "name": "macOS v8.0.0 安装包",
+          "kind": "DMG",
+          "file": "Minechat-8.0.0-mac.dmg",
+          "url": "./downloads/Minechat-8.0.0-mac.dmg"
+        }
+      ]
+    },
     {
       "version": "7.0.0",
       "releaseDate": "2026-08-16",
